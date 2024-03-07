@@ -75,16 +75,14 @@ else:
                 else:
                     if l_no == 0:
                         if line == '':
-                            print('First line is empty!')
+                            pass
                         else:
                             new_file.write(line.replace('\t', ' / '))
                     else:
                         new_file.write(line.replace('\t', ' / '))
     os.remove('scratch.txt')
-
     os.remove('scratchier.txt')
 
 twitter.run()
-
 os.remove('scratchiest.txt')
 
