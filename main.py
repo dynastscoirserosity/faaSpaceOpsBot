@@ -2,7 +2,7 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
-import new_twitter
+import twitter
 
 # download the target page
 faa_site = requests.get('https://www.fly.faa.gov/adv/adv_spt.jsp')
@@ -84,7 +84,7 @@ else:
 
     os.remove('scratchier.txt')
 
-new_twitter.run()
+twitter.run()
 
 os.remove('scratchiest.txt')
 
