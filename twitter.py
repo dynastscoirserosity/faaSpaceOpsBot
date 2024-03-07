@@ -5,16 +5,13 @@ from datetime import datetime
 from itertools import islice
 
 def run():
-    # use values set as variables on gitlab project
-    '''
     client = tweepy.Client(
         consumer_key= 'your key goes here',
         consumer_secret = 'your key goes here',
         access_token = 'your key goes here',
         access_token_secret = 'your key goes here'
     )
-    '''
-
+    
     # read details of the file containing today's extract
     with open('scratchiest.txt', 'r') as file:
         file.seek(0)
@@ -30,15 +27,13 @@ def run():
     character_limit = 220
     if total_characters < likely_empty_limit:
         tweet_text = header + 'The operations plan does not currently include any advisories for space operations.'
-        print(tweet_text)
-        #client.create_tweet(text = tweet_text)
+        client.create_tweet(text = tweet_text)
 
     elif likely_empty_limit <= total_characters <= character_limit:
         with open('scratchiest.txt', 'r') as file:
             with open('scratchiest.txt', 'r') as file:
                 tweet_text = header + '\n' + file.read()
-                print(tweet_text)
-                #client.create_tweet(text = tweet_text)
+                client.create_tweet(text = tweet_text)
 
     elif total_characters > character_limit:
         with open('scratchiest.txt', 'r') as file:
@@ -70,11 +65,8 @@ def run():
                     buffer = buffer + str(x)
                 tweet_text = header + '\n' + buffer
 
-                print(tweet_text)
-                '''
                 if len(tweet_text) < 220:
-                    print(tweet_text)
-                    #client.create_tweet(text = tweet_text)
+                    client.create_tweet(text = tweet_text)
 
                 elif len(tweet_text) >= 220:
                     character = 240
@@ -86,10 +78,9 @@ def run():
                     while 0 <= character_printer <= character:
                         tweet_text_sub1 = tweet_text_sub1 + tweet_text[character_printer]
                         character_printer += 1
-                    print(tweet_text_sub1)
-                    #response = client.create_tweet(text = tweet_text_sub1)
-                    #response_1 = response[0]
-                    #tweet_id = response_1['id']
+                    response = client.create_tweet(text = tweet_text_sub1)
+                    response_1 = response[0]
+                    tweet_id = response_1['id']
 
                     character_printer = character + 1
                     tweet_text_sub2 = str('')
@@ -97,11 +88,10 @@ def run():
                         tweet_text_sub2 = tweet_text_sub2 + tweet_text[character_printer]
                         character_printer += 1
                     tweet_text_sub2 = '== BACKUP(S) ==' + tweet_text_sub2
-                    print(tweet_text_sub2)
-                    #client.create_tweet(text = tweet_text_sub2, in_reply_to_tweet_id = tweet_id)
+                    client.create_tweet(text = tweet_text_sub2, in_reply_to_tweet_id = tweet_id)
 
                 # increase array start value, array end value, and session number by 1
                 s += 1
                 e += 1
-                '''
+                
                 current_section += 1
