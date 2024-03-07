@@ -8,10 +8,10 @@ def run():
     # use values set as variables on gitlab project
     '''
     client = tweepy.Client(
-        consumer_key= 'btsraoPjb1Q0ZrsUIFu46W3rD',
-        consumer_secret = 'ySqeJrGMRXZhmZXepMyJWPjNw38QjHGLpLdocEdYlfpMqddZ9z',
-        access_token = 'y8q21Jn1VgS54JKmmaPTT4U90pfwA1g8KDBtFymmMVRHz',
-        access_token_secret = '1652337369763426304-UM9GueClt1QWsy7Vjem1wkwLZWa2aX'
+        consumer_key= 'your key goes here',
+        consumer_secret = 'your key goes here',
+        access_token = 'your key goes here',
+        access_token_secret = 'your key goes here'
     )
     '''
 
